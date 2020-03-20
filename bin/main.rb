@@ -1,4 +1,12 @@
 #!/usr/bin/env ruby
+def valid_play_again(input)
+  input.downcase!
+  while input != 'y' || input != 'n'
+    false
+  end
+  true
+end
+
 puts 'Hello! Welcome to the tic-tac-toe game!'
 puts ''
 puts 'Instructions:'
