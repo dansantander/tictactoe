@@ -2,6 +2,15 @@
 
 public
 
+def valid_name(name)
+  until name[/[a-zA-Z]/]
+    puts 'Please, enter a valid name'
+    name = gets.chomp
+    valid_name(name)
+  end
+  name.upcase
+end
+
 def valid_play_again(input)
   input.downcase!
   if input != 'y' && input != 'n'
