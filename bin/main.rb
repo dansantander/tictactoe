@@ -1,5 +1,4 @@
 #!/usr/bin/env ruby
-
 public
 
 def valid_name(name)
@@ -22,6 +21,33 @@ def valid_play_again(input)
   end
 end
 
+def turn(player)
+  puts "#{player.name}, choose your cell!"
+    pick = gets.chomp
+    cell = pick.to_i - 1
+
+    if @board.arr[cell] == X || @board.arr[cell] == O || !pick[/\d/] 
+      puts 'Invalid cell, please choose a number between 1 and 9!'
+      @board.print
+      self.turn(player)
+    else
+      puts "#{player.chip} on cell #{pick}!"
+      @board.arr[cell] = player.chip
+      @board.print
+    end
+end
+
+def play (player1, player2)
+  @board = Board.new
+  @board.print
+
+  until @board.full? || @board.win
+    t1 = turn(player1)
+    break if @board.full? || @board.win
+    t2 = turn(player2)
+  end
+end
+
 puts 'Hello! Welcome to the tic-tac-toe game!'
 puts ''
 puts 'Instructions:'
@@ -34,20 +60,24 @@ puts '***Have fun!***'
 puts ''
 puts ''
 
-puts 'Player one, set your name:'
+puts 'Player one, type in your name:'
 p1_name = gets.chomp
-puts "#{p1_name}, choose your symbol:"
-p1_symbol = gets.chomp
-puts "#{p1_name}, you chose #{p1_symbol} as your weapon!"
+name1 = valid_name(p1_name) 
+X = "X".green
+p1 = Player.new(name1, X)
+puts "#{p1.name}, you chose #{p1.chip} as your weapon!"
 
-puts 'Player two, set your name:'
+puts 'Player two, type in your name:'
 p2_name = gets.chomp
-puts "#{p2_name}, choose your symbol:"
-p2_symbol = gets.chomp
-puts "#{p2_name}, you chose #{p2_symbol} as your weapon!"
+name2 = valid_name(p2_name) 
+O = "O".blue
+p2 = Player.new(name2, O)
+puts "#{p2.name}, you chose #{p2.chip} as your weapon!"
 
 puts "#{p1_name} vs #{p2_name}"
-puts '###BOARD APPEARS HERE###'
+
+self.play(p1, p2)
+
 
 playing = true
 
