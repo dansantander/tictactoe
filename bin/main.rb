@@ -1,8 +1,13 @@
 #!/usr/bin/env ruby
+
+public
+
 def valid_play_again(input)
   input.downcase!
-  if input != 'y' || input != 'n'
-    false
+  if input != 'y' && input != 'n'
+    puts "Please only write 'y' or 'n'"
+    input = gets.chomp
+    valid_play_again(input)
   else
     true
   end
