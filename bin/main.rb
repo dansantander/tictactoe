@@ -1,4 +1,49 @@
 #!/usr/bin/env ruby
+class Player
+  attr_accessor :name, :score
+  attr_reader :chip
+  def initialize(name, chip)
+    @name = name
+    @chip = chip
+    @score = 0
+  end
+end
+
+class Board
+  attr_accessor :arr
+
+  def initialize
+    @arr = (1..9).to_a
+  end
+
+  def print
+    puts " #{@arr[0]} | #{@arr[1]} | #{@arr[2]} "
+    puts '---+---+---'
+    puts " #{@arr[3]} | #{@arr[4]} | #{@arr[5]} "
+    puts '---+---+---'
+    puts " #{@arr[6]} | #{@arr[7]} | #{@arr[8]} "
+    puts "\n"
+  end
+
+  def full?
+    board_full = false
+    board_full = true if @arr.all?(String)
+    board_full
+  end
+
+  def win
+    win_arr = [[0, 1, 2], [3, 4, 5], [6, 7, 8],
+               [0, 3, 6], [1, 4, 7], [2, 5, 8],
+               [0, 4, 8], [2, 4, 6]]
+
+    win_arr.each do |block|
+      return 'Player 1' if block.all? { |cell| @arr[cell] == 'X' }
+      return 'Player 2' if block.all? { |cell| @arr[cell] == 'O' }
+    end
+    false
+  end
+end
+
 public
 
 def valid_name(name)
@@ -26,7 +71,7 @@ def turn(player)
   pick = gets.chomp
   cell = pick.to_i - 1
 
-  if @board.arr[cell] == X || @board.arr[cell] == O || !pick[/\d/]
+  if @board.arr[cell] == 'X' || @board.arr[cell] == 'O' || !pick[/\d/]
     puts 'Invalid cell, please choose a number between 1 and 9!'
     @board.print
     turn(player)
@@ -75,29 +120,30 @@ puts ''
 puts 'Player one, type in your name:'
 p1_name = gets.chomp
 name1 = valid_name(p1_name)
-X = 'X'.green
-p1 = Player.new(name1, X)
+# X = 'X'
+p1 = Player.new(name1, 'X')
 puts "#{p1.name}, you chose #{p1.chip} as your weapon!"
 
 puts 'Player two, type in your name:'
 p2_name = gets.chomp
 name2 = valid_name(p2_name)
-O = 'O'.blue
-p2 = Player.new(name2, O)
+# O = 'O'
+p2 = Player.new(name2, 'O')
 puts "#{p2.name}, you chose #{p2.chip} as your weapon!"
 
 puts "#{p1_name} vs #{p2_name}"
 
 play(p1, p2)
-# method for showing results
+# here goes the method for showing results
 
 puts 'You wanna play again? [y/n]'
 play_again = gets.chomp
 valid_input = valid_play_again(play_again)
 
-while valid_input
+unless valid_input
+  # needs finessing
   if play_again == 'y'
-  # initialize game
+  # initialize a new game
   else
     puts 'Ok! See ya!'
   end
