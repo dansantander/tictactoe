@@ -113,18 +113,20 @@ puts ''
 puts "#{p1.name.green} vs #{p2.name.blue}"
 puts ''
 
-play(p1, p2)
-results
+playing = true
 
-puts 'You wanna play again? [y/n]'
-play_again = gets.chomp
-valid_input = valid_play_again(play_again)
+while playing
+  play(p1, p2)
+  results(p1, p2)
 
-unless valid_input
-  # needs finessing
-  if play_again == 'y'
-  # initialize a new game
+  puts 'Wanna play again? [y/n]'
+  play_again = gets.chomp
+  valid_input = valid_play_again(play_again)
+
+  if valid_input == 'y'
+    playing
   else
     puts 'Ok! See ya!'
+    break 
   end
 end
