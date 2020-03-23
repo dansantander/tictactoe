@@ -83,19 +83,18 @@ def results(player1, player2)
   end
 end
 
-puts 'Hello! Welcome to the tic-tac-toe game!'
+puts 'Hello! Welcome to the tic-tac-toe game!'.green
 puts ''
 puts 'Instructions:'
 puts '-Each player chooses a name.'
-puts '-Each player chooses a symbol (X and O are the all-time classics!)'
+puts '-Each player gets a symbol (X and O are the all-time classics!)'
 puts '-The board is displayed! a 3x3 cells array! Choose by number!'
-puts '###BOARD APPEARS HERE###'
 puts '-Players take turns to choose a cell, the first one to make a line of symbols wins!'
 puts '***Have fun!***'
 puts ''
 puts ''
 
-puts 'Player one, type in your name:'
+puts 'Player one, type in your name:'.green
 p1_name = gets.chomp
 name1 = valid_name(p1_name)
 X = 'X'.green
@@ -103,7 +102,7 @@ p1 = Player.new(name1, X)
 puts "#{p1.name.green}, you chose #{p1.chip} as your weapon!"
 puts ''
 
-puts 'Player two, type in your name:'
+puts 'Player two, type in your name:'.blue
 p2_name = gets.chomp
 name2 = valid_name(p2_name)
 O = 'O'.blue
