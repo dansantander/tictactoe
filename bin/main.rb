@@ -13,6 +13,7 @@ def valid_name(name)
   else
     name.upcase
   end
+end
 
 def valid_play_again(input)
   input.downcase!
@@ -21,7 +22,7 @@ def valid_play_again(input)
     input = gets.chomp
     valid_play_again(input)
   else
-  input
+    input
   end
 end
 
@@ -127,6 +128,6 @@ while playing
     playing
   else
     puts 'Ok! See ya!'
-    break 
+    break
   end
 end
