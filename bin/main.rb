@@ -67,13 +67,17 @@ def score(player1, player2)
   end
 end
 
-def results
-  # needs finnesing
+def results(player1, player2)
+  winner = score(player1, player2)
   if @board.win
-    puts "And the winner is: #{@board.win}!  You rock!"
+    puts "And the winner is: #{winner}!  You rock!"
+    puts "Current score is: #{player1.name.green}: #{player1.score} vs  #{player2.name.blue}: #{player2.score}"
+    puts ''
     @board.print
   elsif @board.full?
-    puts "It's a draw! #{p1.chip}, #{p2.chip} what a wonderful battle of wits!"
+    puts "It's a draw! #{player1.name.green}, #{player2.name.blue}: What a wonderful battle of wits!"
+    puts "Current score is: #{player1.name.green}: #{player1.score} vs  #{player2.name.blue}: #{player2.score}"
+    puts ''
     @board.print
   end
 end
