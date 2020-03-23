@@ -17,11 +17,11 @@ def valid_name(name)
 def valid_play_again(input)
   input.downcase!
   if input != 'y' && input != 'n'
-    puts "Please only write 'y' or 'n'"
+    puts "Please only write 'y' or 'n'".red
     input = gets.chomp
     valid_play_again(input)
   else
-    true
+  input
   end
 end
 
