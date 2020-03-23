@@ -6,13 +6,13 @@ require 'colorize'
 public
 
 def valid_name(name)
-  until name[/[a-zA-Z]/]
-    puts 'Please, enter a valid name'
+  if name[/[^a-zA-Z]/]
+    puts 'Please, enter a valid name'.red
     name = gets.chomp
     valid_name(name)
+  else
+    name.upcase
   end
-  name.upcase
-end
 
 def valid_play_again(input)
   input.downcase!
@@ -95,7 +95,7 @@ puts "#{p2.name}, you chose #{p2.chip} as your weapon!"
 puts "#{p1_name} vs #{p2_name}"
 
 play(p1, p2)
-# here goes the method for showing results
+results
 
 puts 'You wanna play again? [y/n]'
 play_again = gets.chomp
