@@ -99,16 +99,19 @@ p1_name = gets.chomp
 name1 = valid_name(p1_name)
 X = 'X'.green
 p1 = Player.new(name1, X)
-puts "#{p1.name}, you chose #{p1.chip} as your weapon!"
+puts "#{p1.name.green}, you chose #{p1.chip} as your weapon!"
+puts ''
 
 puts 'Player two, type in your name:'
 p2_name = gets.chomp
 name2 = valid_name(p2_name)
 O = 'O'.blue
 p2 = Player.new(name2, O)
-puts "#{p2.name}, you chose #{p2.chip} as your weapon!"
+puts "#{p2.name.blue}, you chose #{p2.chip} as your weapon!"
+puts ''
 
-puts "#{p1_name} vs #{p2_name}"
+puts "#{p1.name.green} vs #{p2.name.blue}"
+puts ''
 
 play(p1, p2)
 results
