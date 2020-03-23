@@ -26,8 +26,8 @@ class Board
                [0, 4, 8], [2, 4, 6]]
 
     win_arr.each do |block|
-      return 'Player 1' if block.all? { |cell| @arr[cell] == X }
-      return 'Player 2' if block.all? { |cell| @arr[cell] == O }
+      return 1 if block.all? { |cell| @arr[cell] == X }
+      return 2 if block.all? { |cell| @arr[cell] == O }
     end
     false
   end
