@@ -1,6 +1,6 @@
 class Player
-  attr_accessor :score
-  attr_reader :name, :chip
+  attr_writer :score
+  attr_reader :name, :chip, :score
   def initialize(name, chip)
     @name = name
     @chip = chip

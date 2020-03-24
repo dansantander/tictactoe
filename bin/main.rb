@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
-load '../lib/player.rb'
-load '../lib/board.rb'
+require_relative '../lib/player.rb'
+require_relative '../lib/board.rb'
+require_relative '../lib/gamelogic.rb'
 require 'colorize'
 
 public
@@ -34,19 +35,28 @@ def turn(player)
   if @board.arr[cell] == X || @board.arr[cell] == O || !pick[/\d/]
     puts 'Invalid cell, please choose a number between 1 and 9!'.red
     puts ''
-    @board.print
+    print_board(@board.arr)
     turn(player)
   else
     puts "#{player.chip} on cell #{pick}!"
     puts ''
     @board.arr[cell] = player.chip
-    @board.print
+    print_board(@board.arr)
   end
+end
+
+def print_board(arr)
+  puts " #{arr[0]} | #{arr[1]} | #{arr[2]} "
+  puts '---+---+---'
+  puts " #{arr[3]} | #{arr[4]} | #{arr[5]} "
+  puts '---+---+---'
+  puts " #{arr[6]} | #{arr[7]} | #{arr[8]} "
+  puts "\n"
 end
 
 def play(player1, player2)
   @board = Board.new
-  @board.print
+  print_board(@board.arr)
 
   until @board.full? || @board.win
     turn(player1)
@@ -56,30 +66,19 @@ def play(player1, player2)
   end
 end
 
-def score(player1, player2)
-  if @board.win == 1
-    player1.score += 1
-    player1.name.green
-  elsif @board.win == 2
-    plyer2.score += 1
-    player2.name.blue
-  else
-    false
-  end
-end
-
 def results(player1, player2)
-  winner = score(player1, player2)
+  logic = GameLogic.new
+  winner = logic.score(player1, player2, @board)
   if @board.win
     puts "And the winner is: #{winner}!  You rock!"
     puts "Current score is: #{player1.name.green}: #{player1.score} vs  #{player2.name.blue}: #{player2.score}"
     puts ''
-    @board.print
+    print_board(@board.arr)
   elsif @board.full?
     puts "It's a draw! #{player1.name.green}, #{player2.name.blue}: What a wonderful battle of wits!"
     puts "Current score is: #{player1.name.green}: #{player1.score} vs  #{player2.name.blue}: #{player2.score}"
     puts ''
-    @board.print
+    print_board(@board.arr)
   end
 end
 
