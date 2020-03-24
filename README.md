@@ -63,7 +63,7 @@ For starters, the game will ask for both Player 1 and Player 2 names. Automatica
 </pre>
 
 Each player will be asked to choose a cell number taking turns. 
-Game is won by player who is able to get three of its marks on a straight line, weather it's vertically, horizontally or diagonally.
+Game is won by player who is able to get three of its marks on a straight line, whether it's vertically, horizontally or diagonally.
 Scores will be displayed after each game.
 
 <!-- INSTRUCTIONS-->
@@ -129,9 +129,8 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Daniel Santander - [Github profile](https://github.com/dansantander)
-Rodolfo Rodriguez Mata - [Github profile](https://github.com/RodolfoRodriguezMata)
-
+Daniel Santander - [Github profile](https://github.com/dansantander)<br>
+Rodolfo Rodriguez Mata - [Github profile](https://github.com/RodolfoRodriguezMata)<br>
 Project Link: [https://github.com/dansantander/tictactoe](https://github.com/dansantander/tictactoe)
 
 
