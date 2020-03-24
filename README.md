@@ -53,12 +53,20 @@ Project: Object Oriented Programming - Tic Tac Toe
 ## Getting Started
 
 For starters, the game will ask for both Player 1 and Player 2 names. Automatically, the game will asign marker 'X' to Player 1 and marker 'O' to player 2. Those will be each player's chips for using throghout the game. Afterwards, a 3x3 cells board will be shown at it's initial state:
-
-<p>&nbsp;1&nbsp;|&nbsp;2&nbsp;|&nbsp;3</p>
-<p>---+---+---</p>
-<p>&nbsp;4&nbsp;|&nbsp;5&nbsp;|&nbsp;6</p>
-<p>---+---+---</p>
-<p>&nbsp;7&nbsp;|&nbsp;8&nbsp;|&nbsp;9</p>
+<pre>
+<code>
++--------------+
+|              |
+|   1   2   3  |
+| a   | X |    |
+|  ----------- |
+| b O |   |    |
+|  ----------- |
+| c   |   |    |
+|              |
++--------------+
+</code>
+</pre>
 
 Each player will be asked to choose a cell number taking turns. 
 Game is won by player who is able to get three of its marks on a straight line, weather it's vertically, horizontally or diagonally.
