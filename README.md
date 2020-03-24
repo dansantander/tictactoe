@@ -22,10 +22,9 @@ Project: Object Oriented Programming - Tic Tac Toe
 <br />
 <p align="center">
   
-  <h3 align="center">Tic Tac Toe</h3>
+  <h2 align="center">Tic Tac Toe</h2>
 
   <p align="center">
-    Building the methods from the Enumerables module from Ruby
     <br />
     <a href="https://github.com/dansantander/tictactoe"><strong>Explore the docs »</strong></a>
     <br />
