@@ -4,7 +4,7 @@ class GameLogic
       player1.score += 1
       player1.name.green
     elsif board.win == 2
-      plyer2.score += 1
+      player2.score += 1
       player2.name.blue
     else
       false
