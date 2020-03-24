@@ -1,7 +1,7 @@
 # TIC TAC TOE
 
 The purpose of this project is to build a pure Ruby Tic-Tac-Toe game for running on the command line of your terminal.
-The game is made for two human players to play against each other. For visual purposes, the game board is displayed between turns.
+The game is made for two human players to play against each other. For visual purposes, the game board is displayed between turns and player's markers are differentiated by colors.
 
 Project: Object Oriented Programming - Tic Tac Toe
 
@@ -42,25 +42,34 @@ Project: Object Oriented Programming - Tic Tac Toe
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
 
+* [Getting Started](#getting-started)
 * [Instructions](#instructions)
 * [About the Project](#about-the-project)
 * [Built With](#built-with)
 * [License](#license)
 * [Contact](#contact)
 
+<!-- GETTING STARTED-->
+## Getting Started
+
+For starters, the game will ask for both Player 1 and Player 2 names. Automatically, the game will asign marker 'X' to Player 1 and marker 'O' to player 2. Those will be each player's chips for using throghout the game. Afterwards, a 3x3 cells board will be shown at it's initial state:
+
+ 1 | 2 | 3
+---+---+---
+ 4 | 5 | 6
+---+---+---
+ 7 | 8 | 9
+
+Each player will be asked to choose a cell number taking turns. 
+Game is won by player who is able to get three of its marks on a straight line, weather it's vertically, horizontally or diagonally.
+Scores will be displayed after each game.
+
 <!-- INSTRUCTIONS-->
 ## Instructions
 
-This game uses the 'Colorize' ruby gem to make it easier for players to distinguish between every shot, so the first thing you'll need to do is to run command 'gem install colorize' on your terminal.
-
-Then, run main.rb file inside the terminal to start playing. 
-
-Tic Tac Toe is a game designed for two players who'll get markers (X and O) and take turns marking the spaces in a 3×3 grid. The player who succeeds in placing three of their marks in a horizontal, vertical, or diagonal row is the winner.
-
-If player 1 or player 2 wins, your score will be increased and shown.
-If the game is a tie, the score will stay the same.
-At the end of each game, you'll be asked to exit the game or to start a new one. 
-
+Download the project in your computer and open terminal/command prompt.
+This game uses the 'Colorize' ruby gem to make it easier for players to distinguish between every shot, so you'll need to run command 'gem install colorize' on your terminal.
+Then, navigate to the project folder, run command 'bin/main.rb' and off you go! 
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
@@ -105,7 +114,8 @@ https://www.theodinproject.com/courses/ruby-programming/lessons/object-oriented-
 
 
 ## Built With
-* Ruby
+Ruby - Programming language used
+VS Code - The code editor used
 
 <!-- LICENSE -->
 ## License
