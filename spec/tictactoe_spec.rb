@@ -63,3 +63,52 @@ describe Board do
     end
   end
 end
+
+describe GameLogic do
+  let(:game) { GameLogic.new }
+  let(:board) {Board.new}
+  let(:p1) {Player.new('Dan', X)}
+  let(:p2) {Player.new('Rod', O)}
+  
+
+  describe '#valid user name input' do
+    it "checks if player's name is not an alphabet string" do
+      expect(game.valid_name_input('1')).to eql(false)
+    end
+
+    it "checks if player's name is not empty" do
+      expect(game.valid_name_input('')).to eql(false)
+    end
+  end
+
+  describe '#winner' do
+    it "returns which player wins the match in it's due color" do
+      board.arr = [X, X, X, O, X, O, O, O, X] # player 1 wins
+      expect(game.winner(p1, p2, board)).to eql(p1.name.green)
+    end
+
+    it "returns which player wins the match in it's due color" do
+      board.arr = [O, O, O, X, O, X, X, X, O] # player 2 wins
+      expect(game.winner(p1, p2, board)).to eql(p2.name.blue)
+    end
+  end
+
+  describe '#score' do
+   
+    it "adds up score when a player wins" do
+      p1.score = 0
+      p2.score = 1
+      board.arr = [X, X, X, O, X, O, O, O, X] # player 1 wins
+      expect(game.score(p1, p2, board)).to eql(1)
+    end
+
+    it "adds up score when a player wins" do
+      p1.score = 1
+      p2.score = 1
+      board.arr = [O, O, O, X, O, X, X, X, O] # player 2 wins
+      expect(game.score(p1, p2, board)).to eql(2)
+    end
+
+  end
+
+end

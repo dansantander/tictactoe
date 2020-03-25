@@ -1,5 +1,12 @@
 class GameLogic
-  
+  def valid_name_input(input)
+    if input[/[^a-zA-Z]/] || input == ''
+      false
+    else
+      true
+    end
+  end
+
   def winner(player1, player2, board)
     if board.win == 1
       player1.name.green

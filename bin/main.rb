@@ -7,7 +7,9 @@ require 'colorize'
 public
 
 def valid_name(name)
-  if name[/[^a-zA-Z]/]
+  logic = GameLogic.new
+  valid = logic.valid_name_input(name)
+  if !valid
     puts 'Please, enter a valid name'.red
     name = gets.chomp
     valid_name(name)
