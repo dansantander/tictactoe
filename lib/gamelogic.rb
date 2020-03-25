@@ -17,7 +17,7 @@ class GameLogic
     end
   end
 
-  def score (player1, player2, board)
+  def score(player1, player2, board)
     if board.win == 1
       player1.score += 1
     elsif board.win == 2

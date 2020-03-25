@@ -1,10 +1,10 @@
-#spec/tictactoe_spec.rb
+# spec/tictactoe_spec.rb
 require_relative '../lib/player.rb'
 require_relative '../lib/board.rb'
 require_relative '../lib/gamelogic.rb'
 require 'colorize'
 
-describe Board do 
+describe Board do
   let(:board) { Board.new }
   X = 'X'.green
   O = 'O'.blue
@@ -48,7 +48,7 @@ describe Board do
     it 'checks win for three marks across left to right diagonal' do
       board.arr = [X, 2, 3, 4, X, 6, 7, 8, X]
       expect(board.win).to eql(1)
-    end 
+    end
   end
 
   describe 'full?' do
@@ -66,10 +66,9 @@ end
 
 describe GameLogic do
   let(:game) { GameLogic.new }
-  let(:board) {Board.new}
-  let(:p1) {Player.new('Dan', X)}
-  let(:p2) {Player.new('Rod', O)}
-  
+  let(:board) { Board.new }
+  let(:p1) { Player.new('Dan', X) }
+  let(:p2) { Player.new('Rod', O) }
 
   describe '#valid user name input' do
     it "checks if player's name is not an alphabet string" do
@@ -94,21 +93,18 @@ describe GameLogic do
   end
 
   describe '#score' do
-   
-    it "adds up score when a player wins" do
+    it 'adds up score when a player wins' do
       p1.score = 0
       p2.score = 1
       board.arr = [X, X, X, O, X, O, O, O, X] # player 1 wins
       expect(game.score(p1, p2, board)).to eql(1)
     end
 
-    it "adds up score when a player wins" do
+    it 'adds up score when a player wins' do
       p1.score = 1
       p2.score = 1
       board.arr = [O, O, O, X, O, X, X, X, O] # player 2 wins
       expect(game.score(p1, p2, board)).to eql(2)
     end
-
   end
-
 end

@@ -71,7 +71,7 @@ end
 def results(player1, player2)
   logic = GameLogic.new
   winner = logic.winner(player1, player2, @board)
-  score = logic.score(player1, player2, @board)
+  logic.score(player1, player2, @board)
   if @board.win
     puts "And the winner is: #{winner}!  You rock!"
     puts "Current score is: #{player1.name.green}: #{player1.score} vs  #{player2.name.blue}: #{player2.score}"
