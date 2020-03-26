@@ -49,6 +49,11 @@ describe Board do
       board.arr = [X, 2, 3, 4, X, 6, 7, 8, X]
       expect(board.win).to eql(1)
     end
+
+    it 'returns false if none of the players won)' do
+      board.arr = [X, O, X, X, O, O, O, X, X]
+      expect(board.win).to eql(false)
+    end
   end
 
   describe 'full?' do
@@ -109,6 +114,13 @@ describe GameLogic do
       p2.score = 1
       board.arr = [O, O, O, X, O, X, X, X, O] # player 2 wins
       expect(game.score(p1, p2, board)).to eql(2)
+    end
+
+    it 'returns false and leaves score as it is if none of the players won' do
+      p1.score = 5
+      p2.score = 3
+      board.arr = [X, O, X, X, O, O, O, X, X] # tie case
+      expect(game.score(p1, p2, board)).to eql(false)
     end
   end
 end
