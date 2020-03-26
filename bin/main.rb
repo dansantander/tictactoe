@@ -7,7 +7,9 @@ require 'colorize'
 public
 
 def valid_name(name)
-  if name[/[^a-zA-Z]/]
+  logic = GameLogic.new
+  valid = logic.valid_name_input(name)
+  if !valid
     puts 'Please, enter a valid name'.red
     name = gets.chomp
     valid_name(name)
@@ -68,7 +70,8 @@ end
 
 def results(player1, player2)
   logic = GameLogic.new
-  winner = logic.score(player1, player2, @board)
+  winner = logic.winner(player1, player2, @board)
+  logic.score(player1, player2, @board)
   if @board.win
     puts "And the winner is: #{winner}!  You rock!"
     puts "Current score is: #{player1.name.green}: #{player1.score} vs  #{player2.name.blue}: #{player2.score}"
