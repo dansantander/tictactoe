@@ -140,7 +140,7 @@ describe GameLogic do
       expect(game.winner(p1, p2, board)).to eql(p2.name.blue)
     end
 
-    it "returns false if none of the players won the match" do
+    it 'returns false if none of the players won the match' do
       board.arr = [X, O, X, X, O, O, O, X, X] # tie case
       expect(game.winner(p1, p2, board)).to eql(false)
     end
