@@ -78,6 +78,10 @@ describe GameLogic do
     it "checks if player's name is not empty" do
       expect(game.valid_name_input('')).to eql(false)
     end
+
+    it "returns true if player's name is valid" do
+      expect(game.valid_name_input('Dan')).to eql(true)
+    end
   end
 
   describe '#winner' do
